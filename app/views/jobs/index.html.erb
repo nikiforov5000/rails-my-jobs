@@ -1,0 +1,14 @@
+<div class="row pt-3 pl-3">
+  <div class="col-3">
+    <%= render 'layouts/new_job' %>
+  </div>
+  <div class="col border-left">
+    <h4>Jobs list</h4>
+    <% if @jobs.count > 0 %>
+      <% @jobs.each do |job| %>
+        <% @job = job %>
+        <%= render 'layouts/job_card', locals: { job: @job} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

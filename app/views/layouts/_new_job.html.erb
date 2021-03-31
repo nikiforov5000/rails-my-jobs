@@ -1,0 +1,7 @@
+<%= simple_form_for @job do |f| %>
+  <%= f.input :company %>
+  <%= f.input :title %>
+  <%= f.input :url %>
+  <%= f.input :state, as: :select, collection: ["none", "applied", "got respond", "rejected"] %>
+  <%= f.submit "Save job" %>
+<% end %>

@@ -1,0 +1,18 @@
+<%= link_to "Back", jobs_path, class:"btn btn-outline-primary text-center" %>
+<div class="row  d-flex justify-content-center">
+  <div class="col-lg-12 col-xl-6 card my-5 py-5 ">
+    <div class="job-container text-center", style="">
+      <div class=""><%= link_to "Status: #{@job.state} ", @job, class:"btn btn-#{@job.job_status} btn-block" %></div>
+      <h3>Company name: <%= @job.company %></h3>
+      <h4><%= @job.title %></h4>
+      <div class="row">
+        <div class="col">
+          <%= link_to "Open link", @job.url, class:"btn btn-info btn-block" %>
+        </div>
+        <div class="col">
+          <%= button_to "Delete", @job, method:  :delete, class:"btn btn-danger btn-block" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

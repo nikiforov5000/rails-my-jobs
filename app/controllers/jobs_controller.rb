@@ -2,7 +2,6 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     @job = Job.new
-
   end
 
   def new
@@ -23,6 +22,18 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @cover_letter = CoverLetter.new(cover_letter_params)
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update_attributes(job_params)
+      flash[:success] = "Job was successfully updated"
+      redirect_to @job
+    else
+      flash[:error] = "Something went wrong"
+      render 'edit'
+    end
   end
 
   def destroy
@@ -36,9 +47,11 @@ class JobsController < ApplicationController
       redirect_to @job
     end
   end
-  
 
   private
+  def cover_letter_params
+    # params.require(:cover_letter).permit(:company, :title, :url, :state)
+  end
 
   def job_params
     params.require(:job).permit(:company, :title, :url, :state)

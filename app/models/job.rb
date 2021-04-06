@@ -1,4 +1,5 @@
 class Job < ApplicationRecord
+  has_one :cover_letter, dependent: :destroy
   def job_status
     case state
     when "none"

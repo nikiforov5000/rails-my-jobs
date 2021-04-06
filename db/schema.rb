@@ -10,18 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_172403) do
+ActiveRecord::Schema.define(version: 2021_04_06_162128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cover_letters", force: :cascade do |t|
+    t.string "staff_name"
+    t.string "platform"
+    t.text "body"
+    t.bigint "job_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_cover_letters_on_job_id"
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "company"
     t.string "url"
-    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
   end
 
+  add_foreign_key "cover_letters", "jobs"
 end

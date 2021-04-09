@@ -1,8 +1,7 @@
-<div class="job-container mb-1 border-bottom border-top", style="">
-  <%  %>
-  <%= link_to "Status: #{@job.state} ", @job, class:"btn btn-#{@job.job_status}" %>
+<div class="job-container mb-0", style="height: 20px;">
+  <%= @job.created_at.strftime("%-d %B") %>
+  <%= link_to "Status: #{@job.state} ", @job, class:"btn-#{@job.job_status}" %>
   <strong class="px-2 border-right"><%= @job.company %></strong>
-  <span class="px-2 border-right"><%= @job.title %></span>
-  <%= link_to "Open url", @job.url, class:"btn btn-info px-2 border-right"  %>
-  <%= @job.updated_at %>
+  <span class="px-2 border-right text-dark"><%= @job.title %></span>
+  <%= link_to "url", @job.url, class:"btn-info px-2 border-right"  %>
 </div>

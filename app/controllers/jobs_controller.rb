@@ -11,6 +11,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @jobs = Job.all
+    
     if @job.save
       flash[:success] = "job successfully created"
       redirect_to jobs_path
@@ -22,7 +23,8 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @cover_letter = CoverLetter.new(cover_letter_params)
+    @cover_letter = CoverLetter.new
+    @cover_letter.job = @job
   end
 
   def update
@@ -49,9 +51,7 @@ class JobsController < ApplicationController
   end
 
   private
-  def cover_letter_params
-    # params.require(:cover_letter).permit(:company, :title, :url, :state)
-  end
+  
 
   def job_params
     params.require(:job).permit(:company, :title, :url, :state)

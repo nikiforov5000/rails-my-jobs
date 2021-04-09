@@ -1,0 +1,35 @@
+Boris Nikiforov
+<br>
+Caferağa, Dr. Esat Işık Cd. No:27, D:5, 34710 Kadıköy/İstanbul 
+<br>
++90 541 632 7477
+<br>
+nikiforov5000@gmail.com
+<br>
+<%= Date.today %>
+<br>
+
+<br>
+Re: Application for the position of <%= @job.title.downcase %>. 
+<br>
+Dear <%= @cover_letter.staff_name %>,
+    I would like to apply for the position of <%= @job.title.downcase %> as advertised 
+    on <%= link_to @cover_letter.platform, @job.url %>. With my technical background, 
+    during the bootcamp I developed a strong preference for backend development. It feels 
+    more logical, and somehow more powerful! I like the idea of processing data, and I want 
+    to help the user gets what he wants as quickly and effectively as possible, even if the 
+    user doesn’t how much hard work it takes behind the scenes! During my career in advertising, 
+    I noticed that highly organized and dedicated people are more likely to achieve their goals.
+     That’s my philosophy, and that’s why my clients have always been so loyal to me.  
+    During the bootcamp I helped to build three web applications, and I discovered that my organization skills helped a lot
+    Most recently, I was [talk about your major accomplishments in software development or design.]
+I am impressed with <%= @job.company %>' achievements
+and feel that my motivation and passion with backend and good frontend would be of great benefit to <%= @job.company %>.
+Please find my resume attached. Feel free to contact me if you have any further questions 
+you would like to discuss.
+<br>
+Thank you for taking the time to consider my application. I look forward to hearing from you.
+<br>
+Sincerely,
+<br>
+Boris

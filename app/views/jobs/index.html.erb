@@ -3,8 +3,8 @@
     <%= render 'layouts/new_job' %>
   </div>
   <div class="col border-left">
-    <h4>Jobs list</h4>
     <% if @jobs.count > 0 %>
+      <h4>Jobs list: <%= @jobs.count %> records</h4>
       <% @jobs.each do |job| %>
         <% @job = job %>
         <%= render 'layouts/job_card', locals: { job: @job} %>

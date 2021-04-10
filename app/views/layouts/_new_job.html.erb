@@ -1,9 +1,9 @@
 <%= simple_form_for @job do |f| %>
-  <%= f.input :company %>
+  <%= f.input :company, :input_html => { :wrap => :soft, :rows => 2, class:"my-0 py-0"} %>
   <%= f.input :title %>
-  <%= f.input :country %>
-  <%= f.input :remote %>
   <%= f.input :url %>
   <%= f.input :state, as: :select, collection: ["none", "applied", "got respond", "rejected"] %>
+  <%= f.input :country %>
+  <%= f.input :remote %>
   <%= f.submit "Save job" %>
 <% end %>

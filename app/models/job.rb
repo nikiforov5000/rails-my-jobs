@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   has_one :cover_letter, dependent: :destroy
+  validates :title, uniqueness: { scope: :company }
   def job_status
     case state
     when "none"

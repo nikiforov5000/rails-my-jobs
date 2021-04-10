@@ -7,13 +7,17 @@ class CoverLettersController < ApplicationController
     @cover_letter = CoverLetter.new(cover_letter_params)
     @job = Job.find(params[:job_id])
     @cover_letter.job = @job
-    if @cover_letter.save
-      flash[:success] = "CoverLetter successfully created"
-      redirect_to @cover_letter
-    else
-      flash[:error] = "Something went wrong"
-      render @job
-    end
+
+
+      if @cover_letter.save
+        UserMailer.with(cover_letter: @cover_letter).my_app_email(@cover_letter).deliver_now
+        flash[:success] = "CoverLetter successfully created"
+        redirect_to @cover_letter
+      else
+        flash[:error] = "Something went wrong"
+        render @job
+      end
+
   end
   
 

@@ -1,6 +1,8 @@
 <div class="row pt-3 pl-3">
   <div class="col-3">
     <%= render 'layouts/new_job' %>
+    <%= line_chart Job.group_by_day(:created_at).count %>
+    <%= pie_chart Job.group(:state).count %>
   </div>
   <div class="col border-left">
     <% if @jobs.count > 0 %>

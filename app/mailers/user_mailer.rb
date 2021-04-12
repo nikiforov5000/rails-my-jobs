@@ -7,4 +7,10 @@ class UserMailer < ApplicationMailer
     attachments['boris_nikiforov_cv.pdf'] = File.read('/home/boris/code/nikiforov5000/rails-my-jobs/app/assets/boris_nikiforov_cv.pdf')
     mail(to: @cover_letter.email, subject: "Application for #{@cover_letter.job.title.downcase}")
   end
+  
+  def my_app_email_preview(cover_letter)
+    @cover_letter = cover_letter
+    @job = @cover_letter.job
+    mail(to: @cover_letter.email, subject: "Application for #{@cover_letter.job.title.downcase}")
+  end
 end
